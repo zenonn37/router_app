@@ -1,0 +1,10 @@
+<%=simple_form_for(@driver) do |f|%>
+
+	<%=f.input :name%>
+	<%=f.input :age%>
+	<%=f.input :exp%>
+		<%=f.input :driver_number%>
+	<%=f.input :status, as: :boolean%>
+	<%=f.button :submit%>
+
+<%end%>
