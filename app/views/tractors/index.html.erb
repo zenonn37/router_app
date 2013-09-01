@@ -11,6 +11,7 @@
        		<th>Unit Manuf/Date</th>
        			<th>Current Mileage</th>
        				<th>Distance Range</th>
+                  <th>Last PM Date</th>
                 <th>Mclane Unit</th>
 
        </thead>
@@ -35,7 +36,7 @@
                   <%end%>
                   <td><%=link_to 'Tractor Details', t%></td>
                   <td><%=link_to 'Edit Driver', edit_driver_path(t)%></td>
-                  <td><%=link_to 'Delete',t, method: :delete, data:{confirm:"You About To Delete a Driver! Are you sure?"}%></td>
+                  <td><%=link_to 'Delete',t, method: :delete, data:{confirm:"You Are About To Delete a Tractor! Are you sure?"}%></td>
 
  </tr>
  <%end%>
@@ -43,7 +44,7 @@
     <tfoot>
 
      <tr>
-       <td><%=link_to '+Add New Driver',new_driver_path%></td>
+       <td><%=link_to '+Add New Tractor',new_tractor_path%></td>
      </tr>
     </tfoot>
 
@@ -51,6 +52,10 @@
   
 
       </table>
+
+      <%if @tractor.empty?%>
+      <em>No Tractors Found</em>
+      <%end%>
 
 
 

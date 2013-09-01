@@ -2,7 +2,7 @@ class Tractor < ActiveRecord::Base
 	has_many :truck_assignments
 	has_many :drivers, through: :truck_assignments
 
-	validates :model, presence: true
+	validates :truck_model, presence: true
 	validates :unit_number, presence: true
 	validates :unit_year, presence: true
 	validates :mileage, presence: true

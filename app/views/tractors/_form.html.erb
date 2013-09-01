@@ -1,0 +1,12 @@
+<%=simple_form_for(@tractor) do |f|%>
+
+	<%=f.input :truck_model,collection: [:Freightliner,:Volvo,:International]%>
+	<%=f.input :unit_number%>
+	<%=f.input :unit_year, collection: 2005..2014%>
+	<%=f.input :mileage%>
+	<%=f.input :fuel_range,collection: 500..800%>
+	<%=f.input :last_pm%>
+	<%=f.input :fleet_unit, as: :boolean%>
+	<%=f.button :submit%>
+
+<%end%>
