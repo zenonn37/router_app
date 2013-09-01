@@ -1,6 +1,7 @@
 class Driver < ActiveRecord::Base
 
-	has_many :tractors
+	has_many :truck_assignments
+	has_many :tractors, through: :truck_assignments
 
 	validates :name, presence: true
 	validates :driver_number, presence: true

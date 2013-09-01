@@ -1,0 +1,66 @@
+<div class="row">
+
+	<div class="span12">
+
+      <table class="table">
+        <tr>
+       <thead>
+
+       	<th>Tractor Model</th>
+          <th>Unit Number</th>
+       		<th>Unit Manuf/Date</th>
+       			<th>Current Mileage</th>
+       				<th>Distance Range</th>
+                <th>Mclane Unit</th>
+
+       </thead>
+   </tr>
+  
+
+
+   	<tbody>
+   		<%@tractor.each do |t|%>
+   		 <tr>
+         <td><%=t.truck_model%></td>
+           <td><%=t.unit_number%></td>
+            <td><%=t.unit_year%></td>
+               <td><%=t.mileage%></td>
+               <td><%=t.fuel_range%></td>
+               <td><%=t.last_pm%></td>
+
+                  <%if t.fleet_unit == true %>
+                  <td>Yes</td>
+                  <%else%>
+                  <td>No</td>
+                  <%end%>
+                  <td><%=link_to 'Tractor Details', t%></td>
+                  <td><%=link_to 'Edit Driver', edit_driver_path(t)%></td>
+                  <td><%=link_to 'Delete',t, method: :delete, data:{confirm:"You About To Delete a Driver! Are you sure?"}%></td>
+
+ </tr>
+ <%end%>
+   	</tbody>
+    <tfoot>
+
+     <tr>
+       <td><%=link_to '+Add New Driver',new_driver_path%></td>
+     </tr>
+    </tfoot>
+
+
+  
+
+      </table>
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+</div>

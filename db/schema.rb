@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901180200) do
+ActiveRecord::Schema.define(version: 20130901184123) do
 
   create_table "drivers", force: true do |t|
     t.string   "name"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20130901180200) do
   add_index "drivers", ["name"], name: "index_drivers_on_name"
 
   create_table "tractors", force: true do |t|
-    t.string   "model"
     t.integer  "unit_number"
     t.integer  "unit_year"
     t.integer  "mileage"
@@ -35,6 +34,7 @@ ActiveRecord::Schema.define(version: 20130901180200) do
     t.boolean  "fleet_unit",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "truck_model"
   end
 
   add_index "tractors", ["unit_number"], name: "index_tractors_on_unit_number"

@@ -1,0 +1,12 @@
+<%=simple_form_for(@tractor) do |f|%>
+
+	<%=f.input :model%>
+	<%=f.input :unit_number%>
+	<%=f.input :unit_year%>
+	<%=f.input :mileage%>
+	<%=f.input :fuel_range%>
+	<%=f.input :last_pm%>
+	<%=f.input :fleet_unit, as: :boolean%>
+	<%=f.button :submit%>
+
+<%end%>
