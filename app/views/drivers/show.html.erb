@@ -5,9 +5,14 @@
         <li>Driver ID:<%=@driver.driver_number%></li>
            <li>Driver EXP:<%=@driver.exp%></li>
               <li>Driver AGE:<%=@driver.age%></li>
-                 <li>Driver STATUS:<%=@driver.status%></li>
+                 <%if @driver.status == true %>
+                 <li>Driver STATUS:FullTime</li>
+                 <%else%>
+                  <li>Driver STATUS:PartTime</li>
+                 <%end%>
 
       </ul>
+      <p><%=link_to 'Driver Listing',drivers_path%></p>
      </div>
      <div class="span4">
         <h2>Tractor Assigments</h2>
