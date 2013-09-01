@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831164922) do
+ActiveRecord::Schema.define(version: 20130901180200) do
 
   create_table "drivers", force: true do |t|
     t.string   "name"
@@ -24,5 +24,29 @@ ActiveRecord::Schema.define(version: 20130831164922) do
   end
 
   add_index "drivers", ["name"], name: "index_drivers_on_name"
+
+  create_table "tractors", force: true do |t|
+    t.string   "model"
+    t.integer  "unit_number"
+    t.integer  "unit_year"
+    t.integer  "mileage"
+    t.integer  "fuel_range"
+    t.date     "last_pm"
+    t.boolean  "fleet_unit",  default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tractors", ["unit_number"], name: "index_tractors_on_unit_number"
+
+  create_table "truck_assigments", force: true do |t|
+    t.integer  "driver_id"
+    t.integer  "tractor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "truck_assigments", ["driver_id"], name: "index_truck_assigments_on_driver_id"
+  add_index "truck_assigments", ["tractor_id"], name: "index_truck_assigments_on_tractor_id"
 
 end

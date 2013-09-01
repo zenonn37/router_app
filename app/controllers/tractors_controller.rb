@@ -1,0 +1,2 @@
+class TractorsController < ApplicationController
+end
