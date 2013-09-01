@@ -5,6 +5,7 @@ class DriversController < ApplicationController
  public
 
  def index
+ 	
  	@driver = Driver.all
  	
  end
@@ -14,6 +15,7 @@ class DriversController < ApplicationController
  end
 
  def create
+ 	#render text: params[:driver].inspect
  	@driver = Driver.new(get_params)
  	if @driver.save
  		redirect_to drivers_path
@@ -37,7 +39,8 @@ class DriversController < ApplicationController
 
  def destroy
  	@driver.destroy
- 	
+ 	redirect_to drivers_path
+
  end
 
 
@@ -48,7 +51,7 @@ class DriversController < ApplicationController
  	
  end
  def get_params
- 	params.require(:driver).permit(:name,:age,:driver_id,:status,:exp)
+ 	params.require(:driver).permit(:name,:age,:driver_number,:status,:exp)
  	
  end
 

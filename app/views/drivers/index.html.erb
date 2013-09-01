@@ -1,6 +1,6 @@
 <div class="row">
 
-	<div class="span8">
+	<div class="span12">
 
       <table class="table">
         <tr>
@@ -29,6 +29,9 @@
                   <%else%>
                   <td>PartTime</td>
                   <%end%>
+                  <td><%=link_to 'Driver Details',driver%></td>
+                  <td><%=link_to 'Edit Driver', edit_driver_path(driver)%></td>
+                  <td><%=link_to 'Delete',driver, method: :delete, data:{confirm:"You About To Delete a Driver! Are you sure?"}%></td>
 
  </tr>
  <%end%>
