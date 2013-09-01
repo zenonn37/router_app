@@ -16,12 +16,22 @@ class DriversController < ApplicationController
 
  def create
  	#render text: params[:driver].inspect
- 	@driver = Driver.new(get_params)
- 	if @driver.save
- 		redirect_to drivers_path
+ 		@driver = Driver.new(get_params)
+ 	respond_to do |format|
+       	if @driver.save
+       		format.html{ 	redirect_to @driver, notice: "New Driver created!"}
+       		format.json{ render json: @driver.errors, status: :unprocessable_entity}
+ 	
  	else
- 		redirect_to new_drivers_path
+ 		format.html{ 	redirect_to new_drivers_path }
+       	format.json{ render json: @driver.errors, status: :unprocessable_entity}
+ 		
+ 	   end
+
+
  	end
+ 
+ 
 
  	
  end
@@ -30,16 +40,29 @@ class DriversController < ApplicationController
  end
 
  def update
+ 	respond_to do |format|
+
  	if @driver.update(get_params)
- 		redirect_to drivers_path
+
+ 		format.html {redirect_to @drivers, notice: "updated driver completed!"}
+ 		format.json{render :json,@driver.errors,status: :unprocessable_entity}
  	else
- 		redirect_to edit_drivers_path(@driver)
- 	end
+ 		format.html {redirect_to edit_drivers_path(@driver)}
+ 		format.json{render :json,@driver.errors,status: :unprocessable_entity}
+ 	
+ 	 end
+
+  end
  end
 
  def destroy
+
  	@driver.destroy
- 	redirect_to drivers_path
+ 	respond_to do |format|
+
+ 	format.html{redirect_to drivers_path}
+ 	format.json{head :no_content}
+   end
 
  end
 
