@@ -4,7 +4,21 @@
 
 <h1>Edit New Driver</h1>
 
-<%=render 'form' %>
+<%=simple_form_for(@driver) do |driver_form|%>
+
+	<%=driver_form.input :name%>
+	<%=driver_form.input :age%>
+	<%=driver_form.input :exp%>
+	<%=driver_form.input :driver_number%>
+	<%=driver_form.input :status, as: :boolean%>
+
+	<%=driver_form.fields_for :tractors do |tractor_form|%>
+	   <%=tractor_form.input :unit_number%>
+	<%end%>
+	
+	<%=driver_form.button :submit%>
+
+<%end%>
 
 
 <p><%=link_to 'Driver List',drivers_path%></p>

@@ -11,6 +11,7 @@ class DriversController < ApplicationController
  end
 
  def show
+
  end
 
  def new
@@ -47,7 +48,7 @@ class DriversController < ApplicationController
 
  	if @driver.update(get_params)
 
- 		format.html {redirect_to @drivers, notice: "updated driver completed!"}
+ 		format.html {redirect_to @driver, notice: "updated driver completed!"}
  		format.json{render :json,@driver.errors,status: :unprocessable_entity}
  	else
  		format.html {redirect_to edit_drivers_path(@driver)}

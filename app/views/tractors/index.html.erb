@@ -23,6 +23,7 @@
    		<%@tractor.each do |t|%>
    		 <tr>
          <td><%=t.truck_model%></td>
+           <td><%=t.drivers.size%></td>
            <td><%=t.unit_number%></td>
             <td><%=t.unit_year%></td>
                <td><%=t.mileage%></td>
@@ -50,6 +51,7 @@
 
 
   
+
 
       </table>
 

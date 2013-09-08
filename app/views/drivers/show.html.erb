@@ -15,8 +15,16 @@
 
       </ul>
       <p><%=link_to 'Driver Listing',drivers_path%></p>
+
+     <%=simple_form_for @driver do |f|%>
+        <%= f.association :tractors %>
+        <%=f.button :submit%>
+     <%end%>
      </div>
      <div class="span4">
         <h2>Tractor Assigments</h2>
+        <%@driver.tractors.each do |tractor|%>
+        <p><%=tractor.unit_number%></p>
+        <%end%>
      </div>
 </div>
