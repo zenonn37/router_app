@@ -2,6 +2,7 @@ class Driver < ActiveRecord::Base
 
 	has_many :assignments
 	has_many :tractors, through: :assignments
+	has_many :trailers
 
 	 accepts_nested_attributes_for :tractors
 

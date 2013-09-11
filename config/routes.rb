@@ -1,6 +1,8 @@
 RouterApp::Application.routes.draw do
  
 
+  resources :trailers
+
   root to: 'drivers#index'
    resources :drivers 
    resources :tractors

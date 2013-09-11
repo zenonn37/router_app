@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130904130437) do
+ActiveRecord::Schema.define(version: 20130908145937) do
 
   create_table "assignments", force: true do |t|
     t.integer  "driver_id"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20130904130437) do
   end
 
   add_index "tractors", ["unit_number"], name: "index_tractors_on_unit_number"
+
+  create_table "trailers", force: true do |t|
+    t.string   "unit_number"
+    t.integer  "driver_id"
+    t.integer  "unit_year"
+    t.integer  "mileage"
+    t.date     "last_pm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trailers", ["driver_id"], name: "index_trailers_on_driver_id"
+  add_index "trailers", ["unit_number"], name: "index_trailers_on_unit_number"
 
   create_table "truck_assigments", force: true do |t|
     t.integer  "driver_id"
